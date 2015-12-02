@@ -59,15 +59,27 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- Dao 注入 -->
 	<bean id="userDao" class="org.amoyiki.oa.dao.imp.UserDaoImp">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>	
+	<bean id="treeDao" class="org.amoyiki.oa.dao.imp.TreeDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- Service 注入 -->
 	<bean id="userService" class="org.amoyiki.oa.service.imp.UserServiceImp">
 		<property name="userDao" ref="userDao"/>
 	</bean>
+	
+	
+	<!-- Action 注入-->
 	<bean id="userAction" class="org.amoyiki.oa.actions.UserAction">
 		<property name="userService" ref="userService"/>
+	</bean>
+	
+	<bean id="treeAction" class="org.amoyiki.oa.actions.TreeAction">
+		<property name="treeDao" ref="treeDao" />
 	</bean>
 
 </beans>

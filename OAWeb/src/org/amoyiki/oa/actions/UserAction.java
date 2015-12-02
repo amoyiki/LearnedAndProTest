@@ -1,9 +1,16 @@
 package org.amoyiki.oa.actions;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.amoyiki.oa.entities.User;
 import org.amoyiki.oa.service.UserService;
+import org.amoyiki.oa.utils.JacksonUtil;
+import org.amoyiki.oa.viewModel.Message;
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,6 +20,7 @@ public class UserAction extends ActionSupport{
 	private UserService userService;
 	private String username;
 	private String password;
+	private String captcha;
 	private String confirm;
 	
 	public UserService getUserService() {
@@ -47,23 +55,62 @@ public class UserAction extends ActionSupport{
 		this.confirm = confirm;
 	}
 	
+	public String getCaptcha() {
+		return captcha;
+	}
+
+	public void setCaptcha(String captcha) {
+		this.captcha = captcha;
+	}
+
 	public String login(){
-		Map<String,Object> request = (Map<String,Object>)ActionContext.getContext().get("request");
+		
+		PrintWriter out = null;
+		//防止中文乱码
+		HttpServletResponse httpServletResponse = ServletActionContext.getResponse();
+		httpServletResponse.setContentType("text/plain");
+		httpServletResponse.setCharacterEncoding("utf-8");
+		String json=null;
+		Message message = new Message();
+		message.setTitle("登录提示");
+		
+		String kaptchaExpected = (String)ActionContext.getContext().getSession()
+				.get(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+		System.out.println(kaptchaExpected);
+		System.out.println("==========================");
+		System.out.println(captcha);
+		
 		if (username == null || username.equals("")) {
-			request.put("msg", "用户名不能为空");
+			message.setMessage("用户名不能为空");
 			
 		}else if (password == null || password.equals("")) {
-			request.put("msg", "密码不能为空");
-		}else{
+			message.setMessage("用户名不能为空");
+		}else if (captcha == null || !captcha.equals(kaptchaExpected)){ 
+			message.setMessage("验证码错误");
+		}else {
 			User user = userService.login(username, password);
 			if (user == null) {
-				request.put("msg", "登录失败，请检查用户名或密码！");
+				message.setMessage("登录失败，请检查用户名或密码！");
 			}else{
-				ActionContext.getContext().getSession().put("user", user);
-				return SUCCESS;
+				message.setMessage("登录成功");
+				message.setStatus(true);  
 			}
+			
 		}
-		return INPUT;
+		
+		try {
+			out = httpServletResponse.getWriter();
+			json = JacksonUtil.toJson(message);
+			System.out.println(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		out.print(json);
+		out.close();
+		
+		
+		
+		return null;
 	}
 	public String register(){
 		Map<String,Object> request = (Map<String,Object>)ActionContext.getContext().get("request");

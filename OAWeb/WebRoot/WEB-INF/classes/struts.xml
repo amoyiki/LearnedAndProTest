@@ -14,8 +14,16 @@
        	<result name="input">login.jsp</result>
        	<result name="register">register.jsp</result>
        </action>
+       
+       <action name="treeAction"  class="treeAction">
+       		
+       </action>
     </package>
+    
+    
 	
+
+
 	
 
 </struts>
