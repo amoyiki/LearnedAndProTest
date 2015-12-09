@@ -9,6 +9,11 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+  
+	<!-- 打开Spring的Annotation支持 -->
+<!--	<context:annotation-config />-->
+	<!-- 设定Spring 去哪些包中找Annotation -->
+ <!-- 	<context:component-scan base-package="org.amoyiki" />  -->
 
 	<!-- 导入资源文件 -->
 	<context:property-placeholder location="classpath:db.properties"/>
@@ -59,26 +64,28 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	
 	<!-- Dao 注入 -->
-	<bean id="userDao" class="org.amoyiki.oa.dao.imp.UserDaoImp">
+	<bean id="userDao" class="org.amoyiki.oa.dao.imp.UserDaoImp"> 
 		<!-- 注入持久化操作所需的SessionFactory -->
-		<property name="sessionFactory" ref="sessionFactory"/>
+	<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>	
-	<bean id="treeDao" class="org.amoyiki.oa.dao.imp.TreeDaoImp">
+	<bean id="treeDao" class="org.amoyiki.oa.dao.imp.TreeDaoImp" >
 		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
+	</bean> 
 	<!-- Service 注入 -->
-	<bean id="userService" class="org.amoyiki.oa.service.imp.UserServiceImp">
+ 	<bean id="userService" class="org.amoyiki.oa.service.imp.UserServiceImp">
 		<property name="userDao" ref="userDao"/>
 	</bean>
 	
 	
 	<!-- Action 注入-->
-	<bean id="userAction" class="org.amoyiki.oa.actions.UserAction">
+ 	<bean id="userAction" class="org.amoyiki.oa.actions.UserAction" scope="prototype">
 		<property name="userService" ref="userService"/>
 	</bean>
 	
-	<bean id="treeAction" class="org.amoyiki.oa.actions.TreeAction">
+	<bean id="treeAction" class="org.amoyiki.oa.actions.TreeAction" scope="prototype">
 		<property name="treeDao" ref="treeDao" />
 	</bean>
 

@@ -103,7 +103,7 @@ margin-left: 88px;
 				<img src="extend/toplogo-jeecg.png" />
 			</div>
 			<div class="formLogin">
-				<form name="formLogin" action="user!login.action" id="formLogin" method="post">
+				<form name="formLogin" action="userAction!login.action" id="formLogin" method="post">
 					<div class="tip">
 						<input class="userName" name="username" type="text" id="username" title="用户名" 
 							iscookie="true" value="admin" nullmsg="请输入用户名!" />
@@ -146,7 +146,7 @@ margin-left: 88px;
 	<div class="clear"></div>
 	<div id="versionBar">
 		<div class="copyright">&copy; 版权所有 <span class="tip"><a href="javascript:void(0);" title="amoyiki">amoyiki</a>
-				(推荐使用firefox,谷歌浏览器可以获得更快,更安全的页面响应速度)技术支持:<a href="javascript:void(0);" title="amoyiki">amoyiki</a> </span>
+				推荐使用firefox,谷歌浏览器可以获得更快技术支持</span>
 		</div>
 	</div>
 </body>

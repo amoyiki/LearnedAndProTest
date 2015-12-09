@@ -2,17 +2,18 @@ package org.amoyiki.oa.dao.imp;
 
 import java.util.List;
 
+
 import org.amoyiki.oa.dao.UserDao;
 import org.amoyiki.oa.entities.User;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Service
+
 public class UserDaoImp extends HibernateDaoSupport implements UserDao{
 
+	
 	@Override
 	@Transactional
 	public Integer save(User user) {

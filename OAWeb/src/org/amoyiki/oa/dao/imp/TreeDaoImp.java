@@ -12,11 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class TreeDaoImp extends HibernateDaoSupport implements TreeDao{
 
+
 	@Override
 	@Transactional
 	public List<TreeNode> findAllNodeById(String pid) {
 		Query query = null;
-	if(pid == null || "".equals(pid)){
+		if(pid == null || "".equals(pid)){
 			query = this.getSessionFactory().getCurrentSession().
 					createQuery("select t from TreeNode t where t.pid is null");
 		}else {

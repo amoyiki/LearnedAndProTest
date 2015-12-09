@@ -5,9 +5,13 @@ package org.amoyiki.oa.service.imp;
 import org.amoyiki.oa.dao.UserDao;
 import org.amoyiki.oa.entities.User;
 import org.amoyiki.oa.service.UserService;
+import org.springframework.stereotype.Service;
+import com.opensymphony.xwork2.inject.Inject;
 
+@Service
 public class UserServiceImp implements UserService {
 
+	@Inject
 	private UserDao userDao;
 	
 	public UserDao getUserDao() {

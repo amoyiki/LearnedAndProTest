@@ -4,12 +4,14 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+	<!-- 与spring集成，指定由spring负责action的创建 -->
+ 	<constant name="struts.objectFactory" value="spring" />
 	<!-- <constant name="struts.i18n.encoding" value="" /> -->
 	<constant name="struts.convention.action.mapallmatches" value="true"/>
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="true" />
     <package name="OAWeb" namespace="/"  extends="struts-default">
-       <action name="user" class="userAction">
+       <action name="userAction" class="userAction">
        	<result>index.jsp</result>
        	<result name="input">login.jsp</result>
        	<result name="register">register.jsp</result>

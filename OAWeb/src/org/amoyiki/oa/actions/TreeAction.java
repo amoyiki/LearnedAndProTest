@@ -25,11 +25,13 @@ import com.opensymphony.xwork2.ActionSupport;
  * @date 2015年12月2日 下午11:39:58
  *
  */
+
 public class TreeAction extends ActionSupport{
 	
 	
 	private static final long serialVersionUID = 1L;
 	private String id="";//tree的组件id
+
 	private TreeDao treeDao;
 
 	/**
@@ -50,11 +52,13 @@ public class TreeAction extends ActionSupport{
 				e.setId(t.getId());
 				e.setText(t.getText());
 				Map<String, Object> attributes = new HashMap<String, Object>();
-				attributes.put("url", t.getUrl());
-				e.setAttributes(attributes);
+				if(t.getUrl() != null ||!"".equals(t.getUrl())){
+					attributes.put("url", t.getUrl());
+					e.setAttributes(attributes);
+				}
 				int count = treeDao.countChildrens(t.getId());
 				if (count > 0) {
-					e.setState("closed");
+						e.setState("closed");
 				}
 				eList.add(e);
 			}
