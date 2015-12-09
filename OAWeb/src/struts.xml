@@ -4,15 +4,21 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<!-- 与spring集成，指定由spring负责action的创建 -->
- 	<constant name="struts.objectFactory" value="spring" />
-	<!-- <constant name="struts.i18n.encoding" value="" /> -->
-	<constant name="struts.convention.action.mapallmatches" value="true"/>
+	<!-- 指定Web应用的默认编码集,相当于调用HttpServletRequest的setCharacterEncoding方法 -->  
+    <constant name="struts.i18n.encoding" value="UTF-8" />  
+    <!-- 设置浏览器是否缓存静态内容,默认值为true(生产环境下使用),开发阶段最好关闭 -->  
+    <constant name="struts.serve.static.browserCache" value="false" />  
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->  
+    <constant name="struts.configuration.xml.reload" value="true" />  
+    <!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->  
+    <constant name="struts.devMode" value="true" />  
+    <!-- 把action对象交给spring创建 -->  
+    <constant name="struts.objectFactory" value="spring" /> 
+    <!-- 动态调用 -->
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
-    <constant name="struts.devMode" value="true" />
-    <package name="OAWeb" namespace="/"  extends="struts-default">
+    
+    <package name="OAWeb"  extends="struts-default">
        <action name="userAction" class="userAction">
-       	<result>index.jsp</result>
        	<result name="input">login.jsp</result>
        	<result name="register">register.jsp</result>
        </action>

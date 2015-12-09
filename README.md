@@ -4,3 +4,9 @@
 1. shiro Test
 
 >这是一个shiro的简单搭建项目，基于maven建立。
+
+2. OA系统构建
+
+>设计一个简单的基于JavaWeb下B/S的OA办公自动化的软件
+
+
