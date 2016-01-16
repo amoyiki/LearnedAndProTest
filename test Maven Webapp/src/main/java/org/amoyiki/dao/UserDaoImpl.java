@@ -22,7 +22,7 @@ public class UserDaoImpl  implements UserDao{
     
     public Session getSession() {
     	/* 在hibernate4中不用getCurrentSession() */
-        return sessionFactory.openSession();
+        return sessionFactory.getCurrentSession();
     }
 	@Override
 	public User query(String username, String password) {
