@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <constant name="struts.objectFactory" value="spring" /> 
+    
+    <package name="default" namespace="/" extends="struts-default">
+		<default-action-ref name="notFound"/>
+		<action name="notFound">  
+              <result>/500.jsp</result>  
+   		</action>
+        <action name="userAction"  class="userAction">
+            <result name="input">/login.jsp</result>
+            <result name="success">/user/main.jsp</result>
+        </action>
+
+    </package>
+
+    <!-- Add packages here -->
+  <!--   <include file="action.xml" /> -->
+  
+  
+  
+</struts>

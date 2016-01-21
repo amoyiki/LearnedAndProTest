@@ -15,3 +15,6 @@
 
 > 这是基于maven方式来构建SSH的一个简单的例子，数据库配置文件config.properties按照本机情况更改
 
+- SSHS
+
+>Struts2+Spring+Hibernate4+Shiro1.2.4构建的简单的权限框架。目的是用来给shiro初学者模仿和学习。内容很基础

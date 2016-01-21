@@ -1,0 +1,4 @@
+org\amoyiki\dao\UserDao.class
+org\amoyiki\entity\User.class
+org\amoyiki\dao\UserDaoImpl.class
+org\amoyiki\action\UserAction.class
