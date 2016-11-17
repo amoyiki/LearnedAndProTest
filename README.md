@@ -18,3 +18,7 @@
 - SSHS
 
 >Struts2+Spring+Hibernate4+Shiro1.2.4构建的简单的权限框架。目的是用来给shiro初学者模仿和学习。内容很基础
+
+- blog_project
+
+> 利用django创建一个简单的blog网站。内容~照搬~参考[Django 学习小组](https://segmentfault.com/a/1190000005171218)。后期将缓慢增加一些自己的新东西
