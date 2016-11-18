@@ -13,8 +13,9 @@ Desktop.ini
 
 # pycharm
 blog/__pycache__/
-blog_project/__pycache__/
+blog_project/blog/templatetags/__pycache__/
 .idea/
+*.pyc
 
 # Distribution / packaging
 .Python
