@@ -11,6 +11,11 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
+# pycharm
+blog/__pycache__/
+blog_project/__pycache__/
+
+
 # Distribution / packaging
 .Python
 env/

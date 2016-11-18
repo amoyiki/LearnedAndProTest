@@ -1040,7 +1040,7 @@ img.aligncenter, img.alignright, img.alignleft {
 }
 
 #footer {
-    height: 222px;
+    height: 100px;
     background-color: #515666;
     margin-bottom: 0;
     color: #a8abb3;
@@ -1126,7 +1126,7 @@ img.aligncenter, img.alignright, img.alignleft {
     margin: 0 auto;
     font-size: 15px;
     font-weight: bold;
-    padding-left: 36px;
+    padding-left: 60px;
 }
 
 #footer #ft-links li {
