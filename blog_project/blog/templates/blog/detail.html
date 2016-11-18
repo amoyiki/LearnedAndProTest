@@ -32,6 +32,8 @@
                 </div>
             </div>
         </div>
-        <div id="previous-next-nav"></div>
+        <!-- 多说评论框 start -->
+	        <div class="ds-thread" data-thread-key="{{ article.pk }}" data-title="{{ article.title }}" data-url="{% url 'blog:detail' article.pk %}"></div>
+        <!-- 多说评论框 end -->
     </div>
 {% endblock %}
