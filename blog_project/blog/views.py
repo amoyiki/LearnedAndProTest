@@ -55,4 +55,20 @@ class TagView(ListView):
 
     def get_context_data(self, **kwargs):
         kwargs['tag_list'] = Tag.objects.all().order_by('name')
+        kwargs['date_archive'] = Article.objects.archive()
         return super(TagView, self).get_context_data(**kwargs)
+
+class ArchiveView(ListView):
+    template_name = 'blog/index.html'
+    context_object_name = 'article_list'
+
+    def get_queryset(self):
+        article_list = Article.objects.filter(created_time__year=self.kwargs['year'],created_time__month=self.kwargs['month'], status='p')
+        for article in article_list:
+            article.body = markdown2.markdown(article.body, extras=['fenced-code-blocks'], )
+        return article_list
+
+    def get_context_data(self, **kwargs):
+        kwargs['tag_list'] = Tag.objects.all().order_by('name')
+        kwargs['date_archive'] = Article.objects.archive()
+        return super(ArchiveView, self).get_context_data(**kwargs)

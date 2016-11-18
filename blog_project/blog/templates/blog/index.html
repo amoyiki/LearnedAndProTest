@@ -48,7 +48,7 @@
                 <h3>标签：</h3>
                 <div class="list-group">
                     {% for tag in tag_list %}
-                    <a href="{% url 'blog:tag' tag.pk %}" class="list-group-item"><span class="badge">14</span>
+                    <a href="{% url 'blog:tag' tag.pk %}" class="list-group-item"><span class="badge">{{ tag.article_set.count }}</span>
                         {{ tag.name }}
                     </a>
                     {% endfor %}
@@ -56,23 +56,23 @@
                 <!-- archive -->
                 <h3>文档归类: </h3>
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    {% for year,months in date_archive %}
                     <div class="panel panel-default">
-                        {% for year,months in date_archive %}
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
                                 <a role="button" data-toggle="collapse"
-                                   data-parent="#accordion" href="#collapseOne"
-                                    aria-expanded="true" aria-controls="conllapseOne">
-                                    {{ year }} 年
+                                   data-parent="#accordion" href="#collapseOne{{ year }}"
+                                    aria-expanded="true" aria-controls="conllapseOne{{ year }}">
+                                    {{ year }}年
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
-                        aria-labelledby="hedingOne">
+                        <div id="collapseOne{{ year }}" class="panel-collapse collapse in" role="tabpanel"
+                        aria-labelledby="hedingOne{{ year }}">
                             <div class="panel-body">
                                 {% for month in months %}
-                                <a href=''>
-                                    <p>{{ month }} 月</p>
+                                <a href="{% url 'blog:archive' year month %}">
+                                    <p>{{ month }}月</p>
                                 </a>
                                 {% endfor %}
                             </div>

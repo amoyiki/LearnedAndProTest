@@ -3,6 +3,10 @@
     <a class="previous-page" href="?page={{ article_list.previous_page_number }}">
         <span class="icon-previous"></span>上一页
     </a>
+    {% else %}
+    <a class="btn previous-page disabled" href="#">
+        <span class="icon-previous"></span>上一页
+    </a>
     {% endif %}
 
     {% if first_page == current_page %}
@@ -34,6 +38,10 @@
     <!-- 下一页 -->
     {% if article_list.has_next %}
     <a class="next-page" href="?page={{ article_list.next_page_number }}">
+        <span class="icon-next"></span>下一页
+    </a>
+    {% else %}
+    <a class="btn disabled next-page" href="#">
         <span class="icon-next"></span>下一页
     </a>
     {% endif %}
