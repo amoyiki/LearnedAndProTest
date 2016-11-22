@@ -545,6 +545,7 @@ a.backToTop:hover {
     background-color: #fff;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 20px;
 }
 
 .post-hd .title {
@@ -670,7 +671,7 @@ a.backToTop:hover {
 }
 
 .mod {
-    margin-bottom: 15px
+    margin-bottom: 20px
 }
 
 .mod .hd {
