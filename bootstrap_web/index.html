@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Bootstrap-Web</title>
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="web.css">
 </head>
 <body class="home-template">
@@ -296,5 +297,35 @@
             </div>
         </div>
     </footer>
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="">Copyright &copy; <a href="#">amoyiki</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" id="back-to-top" style="display:block;">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+        $('#back-to-top').on('click', function(e){
+            e.preventDefault();
+            $('html, body').animate({scrollTop : 0},1000);
+            return false;
+        });
+    });
+    </script>
 </body>
 </html>

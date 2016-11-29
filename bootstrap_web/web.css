@@ -173,3 +173,41 @@ a:active,a:focus,a img {
 .main-footer .widget .tag-cloud a{
     border: 1px solid #303030;
 }
+
+.copyright {
+    background:#111;
+    font-size:13px;
+    text-align:center;
+    color:# 555555;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-top:1px solid #303030;
+}
+
+.post-content .blank {
+    background:#ebebeb;
+    height:500px;
+    margin:20px 0;
+}
+
+#back-to-top {
+    position:fixed;
+    right:10px;
+    bottom:10px;
+    background:#965820;
+    color:#ffffff;
+    text-align:center;
+    border-radius:2px;
+    z-index: 1;
+    display:none;
+}
+
+#back-to-top:hover {
+  background: #e67e22;
+}
+
+#back-to-top i{
+    width:30px;
+    height:30px;
+    line-height:30px;
+}
