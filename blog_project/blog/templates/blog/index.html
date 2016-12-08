@@ -1,88 +1,80 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9">
-                <div id="category" class="noselect">
-                    <div id="category-title">
-                        <ul>
-                            <li>分类：</li>
-                            {% for category in category_list %}
-                            <li class="cat-item"><a href="{% url 'blog:category' category.pk %}">
-                                {{ category.name }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <div id="bd" class="wro clear-fix">
-                    <div id="main">
-                        {% load paginate_tags %}
-                        {% paginate article_list 2 %}
-                        {% for article in article_list %}
-                            <div class="post">
-                                <div class="post-hd">
-                                    <h1 class="title"><a href="{% url 'blog:detail' article.pk %}">
-                                        {{ article.title }}</a>
-                                    </h1>
-                                </div>
-                                <div class="post-bd">
-                                    <p>{{ article.abstract }}</p>
-                                    <p><a href=""class="more-link"></a></p>
-                                </div>
-                                <div class="post-ft">
-                                    <a href="{% url 'blog:detail' article.id %}" class="more">阅读全文></a>
-                                    <i class="icon-date"></i>
-                                    <span class="date">
-                                        {{ article.last_modified_time|date:"Y年m月d日" }}
-                                    </span>
-                                </div>
-                            </div>
-                        {% endfor %}
-                        {% include 'blog/pagination.html' %}
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <!--tags-->
-                <h3>标签：</h3>
-                <div class="list-group">
-                    {% for tag in tag_list %}
-                    <a href="{% url 'blog:tag' tag.pk %}" class="list-group-item"><span class="badge">{{ tag.article_set.count }}</span>
-                        {{ tag.name }}
-                    </a>
-                    {% endfor %}
-                </div>
-                <!-- archive -->
-                <h3>文档归类: </h3>
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    {% for year,months in date_archive %}
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingOne">
-                            <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse"
-                                   data-parent="#accordion" href="#collapseOne{{ year }}"
-                                    aria-expanded="true" aria-controls="conllapseOne{{ year }}">
-                                    {{ year }}年
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne{{ year }}" class="panel-collapse collapse in" role="tabpanel"
-                        aria-labelledby="hedingOne{{ year }}">
-                            <div class="panel-body">
-                                {% for month in months %}
-                                <a href="{% url 'blog:archive' year month %}">
-                                    <p>{{ month }}月</p>
-                                </a>
-                                {% endfor %}
+<section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content">
+                    {% load paginate_tags %}
+                    {% paginate article_list 2 %}
+                    {% for article in article_list %}
+                    <article class="post tag-about-ghost tag-ghost-in-depth tag-zhu-shou">
+                        <div class="post-head">
+                            <h1 class="post-title">
+                                <a href="#">{{ article.title }}</a>
+                            </h1>
+                            <div class="post-meta">
+                                <span class="author">
+                                    作者
+                                    <a href="#">王赛</a>
+                                </span>
+                                •
+                                <time class="date" datetime="{{ article.last_modified_time }}">{{ article.last_modified_time|date:"Y年m月d日" }}</time>
                             </div>
                         </div>
-                    </div>
+                        <div class="post-content">
+                            <p>
+                               {{ article.abstract }}
+                            </p>
+                        </div>
+                        <div class="post-permalink">
+                            <a href="#" class="btn btn-default">阅读全文</a>
+                        </div>
+                        <div class="footer clearfix">
+                            <hr>
+                            <div class="pull-left tag-list">
+                                <!--<li class="fa fa-folder-open-o"></li>-->
+                                <a href="#">Ghost</a>
+                                <a href="#">新版本发布</a>
+                                <a href="#">Ghost 0.7 版本</a>
+                            </div>
+                        </div>
+                    </article>
                     {% endfor %}
-                </div>
+                    <nav class="pagination" role="navigation">
+                        <a class="newer-posts" href="#"><i class="fa fa-angle-left"></i></a>
+                        <span class="page-number">第 4 页 ⁄ 共 8 页</span>
+                        <a class="older-posts" href="#"><i class="fa fa-angle-right"></i></a>
+                    </nav>
+                </main>
+                <aside class="col-md-4 sidebar">
+                    <div class="widget">
+                        <h4 class="title">社区</h4>
+                        <div class="content community">
+                            <p>QQ群：277327792</p>
+                            <p>
+                                <a href="#">问答社区</a>
+                            </p>
+                            <p>
+                                <a href="#">官方微博</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="title">下载Ghost</h4>
+                        <div class="content download">
+                            <a href="#" class="btn btn-default btn-block">Ghost中文版</a>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="title">标签云</h4>
+                        <div class="content tag-cloud">
+                            <a href="#">中文</a>
+                            <a href="#">英文</a>
+                            <a href="#">日文</a>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}
-
-{% block commit %}{% endblock %}
