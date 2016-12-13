@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "QRCode",
+    "version": "1.0",
+    "description": "简单的二维码生成器",
+    "icons": {
+        "16": "images/icon16.png",
+        "128": "images/icon128.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_title": "QRCode",
+        "default_icon": {
+            "16": "images/icon16.png",
+            "128": "images/icon128.png"
+        }
+    },
+    "permissions": ["tabs"]
+}
