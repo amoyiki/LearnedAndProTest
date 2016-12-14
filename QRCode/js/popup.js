@@ -1,7 +1,7 @@
 ﻿onload=function(){
   chrome.tabs.getSelected(function(tab){
       //QRCode(元素id,相关配置文件)
-      var qrcode = new QRCode("qrcode-a", {
+      var qrcode = new QRCode("qrcode", {
               text: tab.url,
               width: 160,
               height: 160,
