@@ -10,7 +10,10 @@
               // QRCode的容错级别
               correctLevel : QRCode.CorrectLevel.H
             });
-    console.log(qrcode);
+    if (tab.favIconUrl) {//tab有图标的情况下动态赋值
+      var img = document.getElementsByTagName("img")[1].src = tab.favIconUrl;
+    }
+    console.log(img);
   });
 }
 
