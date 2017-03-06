@@ -9,7 +9,7 @@
 
 -  OA系统构建
 
-> 设计一个简单的基于JavaWeb下B/S的OA办公自动化的软件（尚未完成）
+> 设计一个简单的基于JavaWeb下B/S的OA办公自动化的软件
 
 -  test Maven Webapp
 
@@ -21,7 +21,7 @@
 
 - blog_project
 
-> 利用django创建一个简单的blog网站。内容 ~~照搬~~ 参考[Django 学习小组](https://segmentfault.com/a/1190000005171218)。后期将缓慢增加一些自己的新东西
+> 利用django创建一个简单的blog网站。参考[Django 学习小组](https://segmentfault.com/a/1190000005171218)。后期将缓慢增加一些自己的新东西
 
 - bootstrap
 
