@@ -2,7 +2,11 @@
 这是一个我学习新语言（框架）时所尝试建立的简单的项目集合。
 
 ## ChangeLog
-### Last 2017/08/06
+### Last 2018/09/19
+#### SpringBoot TodoList
+> 利用Java8 + SpringBoot2.x + Mysql/redis + Bootstrap4.x
+创建的一个入门级待办便签
+### 2017/08/06
 #### qidian.py & zhanqi.py
 > 利用 Python3.5 + Selenium + Phantomjs,对起点中文网特定小说进行投票(推荐票);
 对战旗TV进行自动签到领战旗币，配合Linux crontab 完成每日定时启动
@@ -22,6 +26,3 @@
 #### bootstrap
 > 学习使用bootstrap建立一个简单，简洁的blog页面
 。目前只完成首页布局
-
-
-
