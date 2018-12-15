@@ -2,7 +2,12 @@
 这是一个我学习新语言（框架）时所尝试建立的简单的项目集合。
 
 ## ChangeLog
-### Last 2018/09/19
+### Latest 2018/12/15
+### Go 实现 Nginx 日志分析
+> 使用 Golang + Grafana + Influxdb + Docker 
+构建一个 Nginx 日志分析系统
+
+### 2018/09/19
 #### SpringBoot TodoList
 > 利用Java8 + SpringBoot2.x + Mysql/redis + Bootstrap4.x
 创建的一个入门级待办便签
