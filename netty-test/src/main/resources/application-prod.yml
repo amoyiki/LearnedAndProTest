@@ -1,0 +1,32 @@
+netty:
+  web:
+    socket:
+      port: 9999
+      url: ws://localhost:9999/ws/{uri}
+
+logging:
+  level:
+    root: ${LOG_LEVEL:INFO}
+  path: /var/log/web
+
+
+
+spring:
+  # redis 配置
+  redis:
+    database: ${REDIS_DB:0}
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD}
+    jedis:
+      pool:
+        # 连接池最大连接数
+        max-active: 1000
+        # 连接池最大阻塞时间
+        max-wait: 1000
+        # 连接池最大空闲连接数
+        max-idle: 1000
+        # 连接池最小空闲连接数
+        min-idle: 0
+    # 连接超时时间 ms 和 redis.conf timeout 配置有关
+    timeout: 3000

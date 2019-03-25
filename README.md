@@ -2,7 +2,12 @@
 这是一个我学习新语言（框架）时所尝试建立的简单的项目集合。
 
 ## ChangeLog
-### Latest 2018/12/15
+### Latest 2019/03/25
+### Netty 实现 Websocket 服务端
+> 使用 Java8 + Netty + Maven + Redis 
+构建一个 Netty 下的 Websocket 服务
+
+### 2018/12/15
 ### Go 实现 Nginx 日志分析
 > 使用 Golang + Grafana + Influxdb + Docker 
 构建一个 Nginx 日志分析系统

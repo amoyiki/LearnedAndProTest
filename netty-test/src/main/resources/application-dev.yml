@@ -1,0 +1,30 @@
+netty:
+  web:
+    socket:
+      port: 8099
+      url: ws://localhost:8099/ws/{uri}
+logging:
+  level:
+    root: DEBUG
+  path: C:\Users\Administrator\Desktop
+
+
+spring:
+  # redis 配置
+  redis:
+    database: 3
+    host: 127.0.0.1
+    port: 6379
+    password: root
+    jedis:
+      pool:
+        # 连接池最大连接数
+        max-active: 8
+        # 连接池最大阻塞时间
+        max-wait: -1
+        # 连接池最大空闲连接数
+        max-idle: 5
+        # 连接池最小空闲连接数
+        min-idle: 0
+    # 连接超时时间 ms
+    timeout: 10000
